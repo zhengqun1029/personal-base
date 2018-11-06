@@ -1,0 +1,24 @@
+## 系统配置
+server:
+  appId: ${server.appId}
+  env: ${server.env}
+  nodeId: ${server.nodeId}
+  port: ${server.port}
+
+##dubbo配置
+#应用名
+spring:
+  dubbo:
+    application:
+      name: ${server.appId}
+      owner: zhenghanbin
+#zk地址
+    registry:
+      address: ${spring.dubbo.registry.address}
+#协议名
+    protocol:
+      name: ${spring.dubbo.protocol.name}
+#协议端口
+      port: ${spring.dubbo.protocol.port}
+#服务包类目
+    scan: com.personal.provider, com.personal.consumer

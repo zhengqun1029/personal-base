@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- 配置mysql 驱动jar包路径.用了绝对路径 -->
+	<!--<classPathEntry location="D:\maven_repository\com\oracle\ojdbc6\11.2.0.4\ojdbc6-11.2.0.4.jar" />-->
+
+	<context id="luoli" targetRuntime="MyBatis3" defaultModelType="flat">
+		<!-- 生成的Java文件的编码-->
+	    <property name="javaFileEncoding" value="UTF-8"/>
+	
+	    <!-- 格式化java代码-->
+	    <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+	
+	    <!-- 格式化XML代码-->
+	    <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+	
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		
+	    <!-- <plugin type="my.mabatis.example.plugin.BaseMapperGeneratorPlugin" /> -->
+
+		<!-- 防止生成的代码中有很多注释，加入下面的配置控制 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+
+		<!-- 数据库连接 -->
+		
+		<!-- <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@10.3.0.10:1528:SDJTEST"
+			userId="sdj_boss" password="sdj_boss">
+		</jdbcConnection> -->
+		
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+			connectionURL="jdbc:mysql://@119.3.63.228:3306/test"
+			userId="root" password="123456">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 数据表对应的model层 -->
+		<javaModelGenerator targetPackage="com.personal.biz.entity"
+			targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- sql mapper 映射配置文件 -->
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="src\main\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- mybatis3中的mapper接口 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.personal.biz.dao" targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		
+		<table schema="" tableName="test_name" domainObjectName="TestName"
+            enableCountByExample="false" enableUpdateByExample="false"
+            enableDeleteByExample="false" enableSelectByExample="false"
+            selectByExampleQueryId="false">
+            <property name="modelOnly" value="false"/>
+        </table>
+
+	</context>
+</generatorConfiguration>
