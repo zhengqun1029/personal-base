@@ -1,5 +1,7 @@
 package com.personal.biz.service;
 
+import com.personal.biz.entity.TestName;
+
 /**
  * project: com.personal.ssm
  *
@@ -10,6 +12,8 @@ public interface TestService {
     String test(String name);
 
     String getName(String name);
+
+    String insertrecord(TestName testName);
 
 
 }

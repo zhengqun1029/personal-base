@@ -15,6 +15,10 @@ public interface BaseConstant {
             String LOGGER_TOKEN_KEY = "loggerTokenId";
         }
     }
+    // 异常常量
+    interface Exception {
+        String SERVICE_ERROR = "服务器内部异常!";
+    }
 
 
 

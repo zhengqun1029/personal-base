@@ -28,31 +28,4 @@
       </if>
     </trim>
   </insert>
-  <resultMap id="BaseResultMap" type="com.personal.biz.entity.TestName">
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="id" jdbcType="INTEGER" property="id" />
-  </resultMap>
-  <insert id="insert" parameterType="com.personal.biz.entity.TestName">
-    insert into test_name (name, id)
-    values (#{name,jdbcType=VARCHAR}, #{id,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.personal.biz.entity.TestName">
-    insert into test_name
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="name != null">
-        name,
-      </if>
-      <if test="id != null">
-        id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
 </mapper>
